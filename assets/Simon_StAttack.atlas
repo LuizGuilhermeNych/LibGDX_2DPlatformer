@@ -1,0 +1,27 @@
+
+Simon_StAttack.png
+size: 128, 128
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+attack
+  rotate: false
+  xy: 0, 30
+  size: 45, 29
+  orig: 45, 29
+  offset: 0, 0
+  index: 2
+attack
+  rotate: false
+  xy: 0, 0
+  size: 29, 30
+  orig: 29, 30
+  offset: 0, 0
+  index: 0
+attack
+  rotate: false
+  xy: 29, 0
+  size: 26, 30
+  orig: 26, 30
+  offset: 0, 0
+  index: 1
