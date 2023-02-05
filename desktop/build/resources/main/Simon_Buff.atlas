@@ -1,0 +1,13 @@
+
+Simon_Buff.png
+size: 1024, 512
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+simon_buff_gimp
+  rotate: false
+  xy: 0, 0
+  size: 620, 480
+  orig: 620, 480
+  offset: 0, 0
+  index: -1
