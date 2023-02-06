@@ -11,6 +11,9 @@ import com.vale.castlevania.Castlevania;
 import com.vale.castlevania.Screens.PlayScreen;
 import org.graalvm.compiler.asm.amd64.AMD64Address;
 import org.w3c.dom.Text;
+import sun.tools.jconsole.JConsole;
+
+import java.io.Console;
 
 public class Simon extends Sprite {
 
@@ -28,6 +31,7 @@ public class Simon extends Sprite {
     public Animation<TextureRegion> simonJpAttack;
     private boolean walkingRight;
     public float stateTimer;
+    public boolean isAttacking;
 
 
     public void update(float dt){
@@ -38,7 +42,7 @@ public class Simon extends Sprite {
     public TextureRegion getFrame(float dt){
         currentState = getState();
 
-        TextureRegion region = null;
+        TextureRegion region =null;
         switch(currentState){
             case JUMPING:
                 region = simonJump.getKeyFrame(stateTimer);
@@ -50,7 +54,12 @@ public class Simon extends Sprite {
                 region = simonCrouch.getKeyFrame(stateTimer, true);
                 break;
             case STATTACK:
-                region = simonStAttack.getKeyFrame(stateTimer);
+                if (isAttacking){
+                    region = simonStAttack.getKeyFrame(stateTimer);
+                    stateTimer += dt;
+                } else if (simonStAttack.isAnimationFinished(stateTimer)){
+                    isAttacking = false;
+                }
                 break;
             case CRATTACK:
                 region = simonCrAttack.getKeyFrame(stateTimer);
@@ -97,7 +106,9 @@ public class Simon extends Sprite {
             }
             return State.CROUCHING;
         }
-        else if(Gdx.input.isKeyPressed(Input.Keys.A)) {
+        else if(Gdx.input.isKeyJustPressed(Input.Keys.A)) {
+            isAttacking = true;
+            stateTimer = 0;
             return State.STATTACK;
         }
         else {
@@ -119,6 +130,7 @@ public class Simon extends Sprite {
 //        fdef.friction = 1;
         b2body.createFixture(fdef);
     }
+
     public Simon(World world, PlayScreen screen){
         super(screen.getAtlas().findRegion("idle"));
 
@@ -143,7 +155,7 @@ public class Simon extends Sprite {
 
         TextureAtlas stAttackAtlas;
         stAttackAtlas = new TextureAtlas(Gdx.files.internal("Simon_SSB/Simon_SSB_stAttack.atlas"));
-        simonStAttack = new Animation(0.1f, stAttackAtlas.getRegions(), Animation.PlayMode.LOOP);
+        simonStAttack = new Animation(0.1f, stAttackAtlas.getRegions());
 
         TextureAtlas crAttackAtlas;
         crAttackAtlas = new TextureAtlas(Gdx.files.internal("Simon_SSB/Simon_SSB_crAttack.atlas"));
