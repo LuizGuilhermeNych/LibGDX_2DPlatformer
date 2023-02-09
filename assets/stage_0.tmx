@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="80" height="17" tilewidth="16" tileheight="16" infinite="0" nextlayerid="12" nextobjectid="23">
+ <tileset firstgid="1" name="Background_0" tilewidth="480" tileheight="224" tilecount="1" columns="1">
+  <image source="Background_0.png" width="480" height="224"/>
+ </tileset>
+ <tileset firstgid="2" name="Background_1" tilewidth="480" tileheight="224" tilecount="1" columns="1">
+  <image source="Background_1.png" width="480" height="224"/>
+ </tileset>
+ <tileset firstgid="3" name="Background_2" tilewidth="480" tileheight="224" tilecount="1" columns="1">
+  <image source="Background_2.png" width="480" height="224"/>
+ </tileset>
+ <tileset firstgid="4" name="Background_3" tilewidth="480" tileheight="224" tilecount="1" columns="1">
+  <image source="Background_3.png" width="480" height="224"/>
+ </tileset>
+ <tileset firstgid="5" name="Tiles" tilewidth="16" tileheight="16" tilecount="341" columns="31">
+  <image source="Tiles.png" width="496" height="176"/>
+ </tileset>
+ <tileset firstgid="346" name="Pillar_3" tilewidth="192" tileheight="192" tilecount="1" columns="1">
+  <image source="Pillar_3.png" width="192" height="192"/>
+ </tileset>
+ <tileset firstgid="347" name="Pillar_with_candles_3" tilewidth="192" tileheight="192" tilecount="1" columns="1">
+  <image source="Pillar_with_candles_3.png" width="192" height="192"/>
+ </tileset>
+ <tileset firstgid="348" name="Pillar_with_candles_1" tilewidth="192" tileheight="192" tilecount="1" columns="1">
+  <image source="Pillar_with_candles_1.png" width="192" height="192"/>
+ </tileset>
+ <layer id="4" name="Background0" width="80" height="17">
+  <data encoding="base64" compression="zlib">
+   eJztzcEJADAIADGp7j+zG9SXlEIywF0EAAAAwF0tNHOhOTkPnsDfGj+0AAo=
+  </data>
+ </layer>
+ <layer id="8" name="Graphics0" width="80" height="17">
+  <data encoding="base64" compression="zlib">
+   eJztzrERADAIAzGyJmT/OViAxr1U//lcBQAAAJDpl/UT9pcfbqQfAS4Ls/YBcA==
+  </data>
+ </layer>
+ <layer id="3" name="Graphics1" width="80" height="17">
+  <data encoding="base64" compression="zlib">
+   eJztl31KA0EMxTPaa1TRsqutIPUOrbQF0WOtHwfx42BKvYOaoftoHFJ3ShNRmMCP0mH2vX1J/mgbImoKJgyZEXMmSM+0O9uwydeSkeL1aqj9rmSI+m/MnFkIZslZ+n1blsIfnjNj5o4+0EbfLsS8npkX8qtH5om+z9LDEz6yf1Y+qfYNrffpt/onZ+nZP485Se2xgd5fLM85Se1rA71SpUqV+q91ztQt98yDk88H88lUrRc+I/uBqBecjI0rzXHFTFs8+9fn/hwwk9YLn5FjPh8Y9u+WuaN1xhOyy5bmwO/oKvj0D/Mi1h8G/f9b9N4LdnuI/iHjJe2erSuHV/8wr029A0fBbg/RP3haZEOOwx92oA6rnZd7X2WAu9ozODvt2D94d/nmvpf0S7NpOjm6dUaOuPNy7ycZ4K72DM669q/J9M19L9zTsmk6ObqpZmF3vgDUpfQV
+  </data>
+ </layer>
+ <layer id="5" name="Graphics2" width="80" height="17">
+  <data encoding="base64" compression="zlib">
+   eJztkEkOQUEURevPNdFFswVN8H802yCEZRDCMghhGYSwD1bkJKY1+fXyi8E7yZnVvfeljFEURfkSYvSjvHTbd6+NCU4F+RnOHbMjHAu2fffaWOFakN/g1jG7wKVg23evjQMeBfkTnh2zO9wLtn332rjhXZB/4NMxe8GrYNt3r40Xvj1tKYqi/AupwJg0ZjAbJLdTpruCVazF3MnxPo8FLGIpwTvjUueWBjaxleBdPbr7OMBhzJ027zvYxRCjP/o/RVH88gH1bxdD
+  </data>
+ </layer>
+ <layer id="6" name="Graphics3" width="80" height="17">
+  <data encoding="base64" compression="zlib">
+   eJzt1FsKgCAQheFZWEX76OI+qqW02A74EoMPKqEQ/wfnQQVHEccMAAAAQI25cb29cT3kOZRTuSy+0d33OEA3i7Iqm5sPbjwoozJ9WNvv6fvl+5+m1kuk7kl/Bv7tAZsHCYo=
+  </data>
+ </layer>
+ <layer id="7" name="Graphics4" width="80" height="17">
+  <data encoding="base64" compression="zlib">
+   eJzt01EKwCAIANDuf8FoXWYdwI8Zi0DeA0EkSClbAwAAMsaKZ8Uset8p/XYDh1V5J8j68vejM3/vTA/yqJaxOxtQywuzkBik
+  </data>
+ </layer>
+ <objectgroup id="9" name="Floor">
+  <object id="5" x="0" y="224" width="1280" height="48"/>
+  <object id="7" x="0" y="160" width="64" height="64"/>
+  <object id="8" x="864" y="176" width="80" height="48"/>
+  <object id="14" x="448" y="160" width="80" height="64"/>
+  <object id="16" x="1248" y="160" width="32" height="64"/>
+ </objectgroup>
+ <objectgroup id="10" name="Roof">
+  <object id="17" x="0" y="0" width="1280" height="48"/>
+  <object id="18" x="1232" y="48" width="48" height="48"/>
+  <object id="19" x="864" y="48" width="80" height="48"/>
+  <object id="20" x="448" y="48" width="80" height="32"/>
+  <object id="21" x="0" y="48" width="64" height="32"/>
+ </objectgroup>
+ <objectgroup id="11" name="Bouds">
+  <object id="3" x="-16" y="80" width="16" height="80"/>
+  <object id="4" x="1280" y="96" width="16" height="64"/>
+ </objectgroup>
+</map>

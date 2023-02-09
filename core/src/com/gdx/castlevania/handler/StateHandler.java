@@ -1,0 +1,7 @@
+package com.gdx.castlevania.handler;
+
+public class StateHandler {
+	
+	
+
+}

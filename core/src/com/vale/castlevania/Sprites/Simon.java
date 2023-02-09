@@ -9,9 +9,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.physics.box2d.*;
 import com.vale.castlevania.Castlevania;
 import com.vale.castlevania.Screens.PlayScreen;
-import org.graalvm.compiler.asm.amd64.AMD64Address;
 import org.w3c.dom.Text;
-import sun.tools.jconsole.JConsole;
 
 import java.io.Console;
 
