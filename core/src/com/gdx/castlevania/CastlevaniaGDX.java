@@ -14,7 +14,7 @@ public class CastlevaniaGDX extends Game {
 	
 	//Atributos referente à dimensões da tela
 	public static final int V_WIDTH = 400;
-	public static final int V_HEIGHT = 208;
+	public static final int V_HEIGHT = 300;
 	
 	
 	@Override
