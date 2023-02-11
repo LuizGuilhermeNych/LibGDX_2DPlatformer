@@ -11,24 +11,14 @@ public class StateHandler {
     public State currentState;
     public State previousState;
 
-    public void checkIfStanding(){
-        if(b2body.getLinearVelocity().x == 0)
-            currentState = State.STANDING;
-    }
-
-    public void checkIfRunning(){
+    public State getState(){
         if (b2body.getLinearVelocity().x != 0)
-            currentState = State.WALKING;
+            return State.WALKING;
+        else if (b2body.getLinearVelocity().y > 0 || (b2body.getLinearVelocity().y < 0 && previousState == State.JUMPING))
+            return State.JUMPING;
+        else if(Gdx.input.isKeyPressed(Input.Keys.S))
+            return State.CROUCHING;
+        else
+            return State.STANDING;
     }
-
-    public void checkIfJumping(){
-        if (b2body.getLinearVelocity().y > 0 || (b2body.getLinearVelocity().y < 0 && previousState == State.JUMPING))
-            currentState = State.JUMPING;
-    }
-
-    public void checkIfCrouching(){
-        if(Gdx.input.isKeyPressed(Input.Keys.S))
-            currentState = State.CROUCHING;
-    }
-
 }

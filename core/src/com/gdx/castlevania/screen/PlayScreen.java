@@ -57,7 +57,7 @@ public class PlayScreen implements Screen{
 		gameCam.position.set(gamePort.getWorldWidth() / 2, gamePort.getWorldHeight() / 2, 0);
 		
 		//Inicializando gravidade e simulações
-		world = new World(new Vector2(0, -5), true);
+		world = new World(new Vector2(0, -10f), true);
 		
 		//Debug nos sprites
 		b2dr = new Box2DDebugRenderer();
