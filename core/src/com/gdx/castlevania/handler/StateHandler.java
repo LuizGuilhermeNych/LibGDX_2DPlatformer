@@ -26,6 +26,9 @@ public class StateHandler {
             currentState = State.JUMPING;
     }
 
-    
+    public void checkIfCrouching(){
+        if(Gdx.input.isKeyPressed(Input.Keys.S))
+            currentState = State.CROUCHING;
+    }
 
 }

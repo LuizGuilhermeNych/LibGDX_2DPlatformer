@@ -1,6 +1,7 @@
 package com.gdx.castlevania.screen;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -15,6 +16,8 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import com.gdx.castlevania.CastlevaniaGDX;
 import com.gdx.castlevania.container.CollisionContainer;
 import com.gdx.castlevania.entity.Player;
+import com.gdx.castlevania.handler.InputHandler;
+import com.gdx.castlevania.handler.StateHandler;
 
 public class PlayScreen implements Screen{
 	
@@ -35,6 +38,8 @@ public class PlayScreen implements Screen{
 	
 	//Atributo de carregamento do personagem
 	private Player player;
+	private StateHandler stateHandler;
+	private InputHandler inputHandler;
 		
 	public PlayScreen (CastlevaniaGDX game) {
 		this.game = game;
@@ -52,14 +57,16 @@ public class PlayScreen implements Screen{
 		gameCam.position.set(gamePort.getWorldWidth() / 2, gamePort.getWorldHeight() / 2, 0);
 		
 		//Inicializando gravidade e simulações
-		world = new World(new Vector2(0, -10), true);
+		world = new World(new Vector2(0, -5), true);
 		
 		//Debug nos sprites
 		b2dr = new Box2DDebugRenderer();
 		
 		//Configura colisões no mapa
 		new CollisionContainer(world, map);
-		
+
+		inputHandler = new InputHandler();
+
 		//Inicializando personagem no mundo
 		player = new Player(world, this);
 	}
@@ -71,7 +78,8 @@ public class PlayScreen implements Screen{
 	}
 	
 	public void update(float dt) {
-		world.step(1/16f, 6, 2);
+		inputHandler.handleInput(player, dt);
+		world.step(1f, 3, 1);
 		
 		player.update(dt);
 		
@@ -93,8 +101,8 @@ public class PlayScreen implements Screen{
 		b2dr.render(world, gameCam.combined);
 		
 		game.batch.setProjectionMatrix(gameCam.combined);
-//		player.draw(game.batch);
 		game.batch.begin();
+//		player.draw(game.batch);
 		game.batch.end();
 	}
 
