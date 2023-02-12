@@ -28,10 +28,11 @@ public class Player extends Sprite{
 	public StateHandler stateHandler;
 	public boolean walkingRight;
 
-	public Player(World world, PlayScreen screen) {
+	public Player(World world, PlayScreen screen, StateHandler stateHandler) {
 		this.world = world;
+		this.stateHandler = stateHandler;
 
-		stateHandler = new StateHandler();
+		stateHandler = new StateHandler(player);
 		stateHandler.currentState = StateHandler.State.STANDING;
 		stateHandler.previousState = StateHandler.State.STANDING;
 
@@ -59,7 +60,7 @@ public class Player extends Sprite{
 
 	public void update(float dt) {
 		setPosition(b2body.getPosition().x - getWidth() / 2, b2body.getPosition().y - getHeight() / 2);
-		setRegion(getFrame(stateHandler, dt));
+		setRegion(player.stateHandler.getFrame(dt));
 	}
 
 	public void definePlayer() {
@@ -78,35 +79,5 @@ public class Player extends Sprite{
 		//Atribuições de corpo e formato
 		fdef.shape = shape;
 		b2body.createFixture(fdef);
-	}
-
-	public TextureRegion getFrame(StateHandler stateHandler, float dt){
-
-		stateHandler.currentState = stateHandler.getState();
-
-		TextureRegion region;
-		switch (stateHandler.currentState){
-			case WALKING:
-				region = playerWalk.getKeyFrame(stateTimer, true);
-				break;
-			case JUMPING:
-				region = playerJump.getKeyFrame(stateTimer);
-				break;
-			case CROUCHING:
-				region = playerCrouch.getKeyFrame(stateTimer);
-				break;
-			default:
-				region = playerStand.getKeyFrame(stateTimer);
-				break;
-		}
-
-		if((b2body.getLinearVelocity().x < 0 || !walkingRight) && !region.isFlipX()){
-			region.flip(true, false);
-			walkingRight = false;
-		} else if ((b2body.getLinearVelocity().x > 0 || walkingRight) && region.isFlipX()) {
-			region.flip(true, false);
-			walkingRight = true;
-		}
-		return region;
 	}
 }

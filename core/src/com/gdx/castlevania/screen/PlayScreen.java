@@ -67,8 +67,10 @@ public class PlayScreen implements Screen{
 
 		inputHandler = new InputHandler();
 
+		stateHandler = new StateHandler(player);
+
 		//Inicializando personagem no mundo
-		player = new Player(world, this);
+		player = new Player(world, this, stateHandler);
 	}
 
 	@Override
